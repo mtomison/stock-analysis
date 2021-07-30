@@ -1,5 +1,6 @@
 Sub DQAnalysis()
 
+    Worksheets("DQ Analysis").Activate
     Range("A1").Value = "DAQO (Ticker: DQ)"
     
     'Create a header row
