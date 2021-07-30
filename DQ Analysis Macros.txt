@@ -8,9 +8,19 @@ Sub DQAnalysis()
     Cells(3, 2).Value = "Total Daily Volume"
     Cells(3, 3).Value = "Return"
 
+    '2018 Data
     Worksheets("2018").Activate
+    Dim tmp As Long
+    Dim tmp2 As Long
+    With Worksheets("2018").UsedRange
+        'number of rows of range
+        tmp = .Rows.Count
+        'number of used rows with data
+        tmp2 = Application.WorksheetFunction.CountA(.Columns(1))
+    End With
+    
     rowStart = 2
-    rowEnd = 3013
+    rowEnd = tmp2
     totalVolume = 0
     
     For i = rowStart To rowEnd
@@ -20,12 +30,37 @@ Sub DQAnalysis()
         End If
         
     Next i
+    
+    '2017 Data
+    Worksheets("DQ Analysis").Activate
+    Cells(5, 1).Value = 2017
+    Cells(5, 2).Value = totalVolume
 
-    MsgBox (totalVolume)
+    Worksheets("2017").Activate
+    Dim tmp1 As Long
+    Dim tmp3 As Long
+    With Worksheets("2017").UsedRange
+        'number of rows of range
+        tmp1 = .Rows.Count
+        'number of used rows with data
+        tmp3 = Application.WorksheetFunction.CountA(.Columns(1))
+    End With
+    
+    rowStart = 2
+    rowEnd = tmp3
+    totalVolume = 0
+    
+    For i = rowStart To rowEnd
+        'increase totalVolume if ticket is "DQ"
+        If Cells(i, 1).Value = "DQ" Then
+            totalVolume = totalVolume + Cells(i, 8).Value
+        End If
+        
+    Next i
     
     Worksheets("DQ Analysis").Activate
-    Cells(4, 1).Value = 2018
-    Cells(4, 2).Value = totalVolume
-
+    Cells(5, 1).Value = 2017
+    Cells(5, 2).Value = totalVolume
 
 End Sub
+
