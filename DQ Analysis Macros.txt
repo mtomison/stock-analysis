@@ -10,19 +10,22 @@ Sub DQAnalysis()
 
     '2018 Data
     Worksheets("2018").Activate
-    Dim tmp As Long
-    Dim tmp2 As Long
-    With Worksheets("2018").UsedRange
-        'number of rows of range
-        tmp = .Rows.Count
-        'number of used rows with data
-        tmp2 = Application.WorksheetFunction.CountA(.Columns(1))
-    End With
-    
     rowStart = 2
-    rowEnd = tmp2
+    'DELETE: rowEnd = 3013
+    'rowEnd code take from https://stackoverflow.com/questions/18088729/row-count-where-data-exists
+    rowEnd = Cells(Rows.Count, "A").End(xlUp).Row
     totalVolume = 0
     
+    'Dim tmp As Long
+    'Dim tmp2 As Long
+    'With Worksheets("2018").UsedRange
+        'number of rows of range
+        'tmp = .Rows.Count
+        'number of used rows with data
+        'tmp2 = Application.WorksheetFunction.CountA(.Columns(1))
+    'End With
+    
+        
     For i = rowStart To rowEnd
         'increase totalVolume if ticket is "DQ"
         If Cells(i, 1).Value = "DQ" Then
@@ -32,35 +35,36 @@ Sub DQAnalysis()
     Next i
     
     '2017 Data
-    Worksheets("DQ Analysis").Activate
-    Cells(5, 1).Value = 2017
-    Cells(5, 2).Value = totalVolume
+    'Worksheets("DQ Analysis").Activate
+    'Cells(5, 1).Value = 2017
+    'Cells(5, 2).Value = totalVolume
 
-    Worksheets("2017").Activate
-    Dim tmp1 As Long
-    Dim tmp3 As Long
-    With Worksheets("2017").UsedRange
+    'Worksheets("2017").Activate
+    'Dim tmp1 As Long
+    'Dim tmp3 As Long
+    'With Worksheets("2017").UsedRange
         'number of rows of range
-        tmp1 = .Rows.Count
+        'tmp1 = .Rows.Count
         'number of used rows with data
-        tmp3 = Application.WorksheetFunction.CountA(.Columns(1))
-    End With
+        'tmp3 = Application.WorksheetFunction.CountA(.Columns(1))
+    'End With
     
-    rowStart = 2
-    rowEnd = tmp3
-    totalVolume = 0
+    'rowStart = 2
+    'rowEnd = tmp3
+    'totalVolume = 0
     
-    For i = rowStart To rowEnd
+    'For i = rowStart To rowEnd
         'increase totalVolume if ticket is "DQ"
-        If Cells(i, 1).Value = "DQ" Then
-            totalVolume = totalVolume + Cells(i, 8).Value
-        End If
+        'If Cells(i, 1).Value = "DQ" Then
+            'totalVolume = totalVolume + Cells(i, 8).Value
+        'End If
         
-    Next i
+    'Next i
     
     Worksheets("DQ Analysis").Activate
-    Cells(5, 1).Value = 2017
-    Cells(5, 2).Value = totalVolume
+    Cells(4, 1).Value = 2018
+    Cells(4, 2).Value = totalVolume
 
 End Sub
+
 
