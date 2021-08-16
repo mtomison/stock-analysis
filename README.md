@@ -18,10 +18,10 @@ Initially, the code for all stocks based on the year selected ran a bit long.  F
 
 ## Summary
 
--Advantages of Refactoring
->Refactoring is beneficial when you have some code that works, but perhaps it is not elegant or streamlined enough to accommodate larger data sets.  
->Additionally, refactoring is a way to make the code more readable and more easily translated by others.  Fresh eyes on code is also a great advantage when refactoring other's code.
+>Advantages of Refactoring
+- Refactoring is beneficial when you have some code that works, but perhaps it is not elegant or streamlined enough to accommodate larger data sets.  
+- Additionally, refactoring is a way to make the code more readable and more easily translated by others.  Fresh eyes on code is also a great advantage when refactoring other's code.
 
--Disadvantages of Refactoring
->Refactoring can become very messy and cumbersome.  It can be difficult to read others code, especially if there are no notes.
->Refactoring can potentially cause the opposite of what you are trying to achieve; longer running code, etc.
+>Disadvantages of Refactoring
+- Refactoring can become very messy and cumbersome.  It can be difficult to read others code, especially if there are no notes.
+- Refactoring can potentially cause the opposite of what you are trying to achieve; longer running code, etc.
